@@ -146,7 +146,7 @@ $ js --show-version
 
 Both of the above commands will make reference to GraalVM and the version. If you have node already installed, you may need to change your path or explicitly specify the path to the GraalVM version of node
 
-### Installing the llvm-toolchain
+#### Installing the llvm-toolchain
 
 A number of the packages require the `llvm-toolchain` in order to work. Regardless of whether you are using the Enterprise or Community Edition, you will need to install the same version.
 
@@ -166,7 +166,7 @@ Full instructions can be found [here](https://www.graalvm.org/docs/reference-man
 2. `$ gu install -L <DOWNLOAD-DIR>/native-image-installable-svm-svmee-java11-darwin-amd64-21.0.0.jar`
 3. Test the installation with: `native-image --version`
 
-### Intalling Ruby
+#### Intalling Ruby
 
 Full instructions can be found [here](https://www.graalvm.org/docs/reference-manual/languages/ruby/#installing-ruby).
 
@@ -206,9 +206,9 @@ When installing the R language module, it is best to consult the installation pa
 
 ### Install Visual Studio Code
 
-A number of plugins ahve been written for this editor, that allow for better integration with the GraalVM eco-system.
+A number of plugins have been developed for Microsoft VSCode that allow for better integration with the GraalVM eco-system.
 
-You are more than welcome to use another editor. When it comes to the polyglot debugging, please make sure that you have the Google Chrome browser installed.
+Of course, you are welcome to use another IDE. When it comes to the polyglot debugging, please make sure that you have the Google Chrome browser installed.
 
 ### Install VS Code Plugins
 
