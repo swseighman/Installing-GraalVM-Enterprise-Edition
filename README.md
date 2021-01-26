@@ -2,6 +2,7 @@
 
 This guide, will walk you through the process of getting setup with GraalVM (in this example, GraalVM Enterprise Edition 21.0.0). 
 
+For an optimal lab experience, please install the following tools: `git`, `curl`, `unzip`, Docker or Podman, Apache Maven and your favorite IDE (optional).
 
 ## Downloading GraalVM, Enterprise Edition 21.0.0
 
