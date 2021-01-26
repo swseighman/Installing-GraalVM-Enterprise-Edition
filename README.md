@@ -44,9 +44,9 @@ You will be asked to accept the license agreement (OTN license, this means that 
 
 ![GraalVM Download Page - Login](./images/oracle-acct.png)
 
-After downloading the Core, highlighted in the steps above, you can download any of the following optional package / languages for GraalVM. All of these are available from the page we downloaded the core:
+After downloading the Core (highlighted in the steps above), you can download any of the following optional modules/languages for GraalVM. All of these are available from the page we downloaded the core:
 
-Please download the following optional packages:
+Please download the following optional modules:
 
 * Oracle GraalVM Enterprise Edition Native Image
 * GraalVM LLVM Toolchain Plugin
@@ -62,7 +62,7 @@ Optional plugins for GraalVM:
 
 ## Installing GraalVM
 
-The full instructions on getting setup, can be found here, [Installing ](https://www.graalvm.org/docs/getting-started/#install-graalvm).
+The full instructions on setup, can be found here, [Installing ](https://www.graalvm.org/docs/getting-started/#install-graalvm).
 
 A quick summary of the steps outlined in the link above are:
 
