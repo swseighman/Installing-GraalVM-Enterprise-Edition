@@ -62,11 +62,11 @@ Optional plugins for GraalVM:
 
 ## Installing GraalVM
 
-The full instructions on setup, can be found here, [Installing ](https://www.graalvm.org/docs/getting-started/#install-graalvm).
+The full instructions on setup can be found [here](https://www.graalvm.org/docs/getting-started/#install-graalvm).
 
 A quick summary of the steps outlined in the link above are:
 
-1. Download the latest version of GraalVM EE for your OS, from [Download](https://www.oracle.com/downloads/graalvm-downloads.html)
+1. Download the latest version of GraalVM EE for your OS from the [Download page](https://www.oracle.com/downloads/graalvm-downloads.html)
     - See earlier section, Downloading GraalVM
 2. You will need to download the following modules:
     - Oracle GraalVM Enterprise Edition for JDK11 (Version 21.0.0)
