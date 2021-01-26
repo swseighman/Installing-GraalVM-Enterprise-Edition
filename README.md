@@ -5,7 +5,7 @@ This guide, will walk you through the process of getting setup with GraalVM (in 
 
 ## Downloading GraalVM, Enterprise Edition 21.0.0
 
-It is important to state that are there are two versions of `GraalVM`, the Enterprise Edition (supported and with better performance) and the Community Edition (free and Open Source).
+It is important to note there are two versions of `GraalVM`, the Enterprise Edition (supported and with better performance) and the Community Edition (free and Open Source).
 
 Both of these can be dwonloaded from the GraalVM website, but these instructions will detail download and installation of the Enterprise Edition.
 
