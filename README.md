@@ -2,27 +2,6 @@
 
 This guide, will walk you through the process of getting setup with GraalVM (in this example, GraalVM Enterprise Edition 21.0.0). 
 
-## Notes on Mac Setup
-These instructions are focused on installing on Linux and Mac. If you install on a Mac, a number of the details will vary from the general approach.
-
-First, if you direct `GRAAL_HOME` to `/Library/Java/JavaVirtualMachines/`, MacOS picks the JDK as default-jdk (as long it’s the newest JDK in the directory). You may not want this outcome. 
-
-Secondly, the path that the core GraalVM extracts differs from that of Linux. For Mac, it adds a few sub-directories and the directory that will be used as your `GRAALVM_HOME` will be relative to the directory that you extracted to:
-
-    <install-dir>/graalvm-ee-java11-21.0.0/Contents/Home
-
-The third major difference is that on some versions of OSX, the `GateKeeper` service on OSX will block you from running `GraalVM` as it is not a signed application / binary. We can work around this challenge in a number of ways:
-
-* Disabling `GateKeeper`, running and then reenabling
-* On latter versions of OSX, you will be prompted that GraalVM is blocked and `GateKeeper` will prompt you to add an exception
-* You can allow access by using the `spctl` tool:
-
-    ~~~ {.bash}
-    # Run from the terminal
-    # This assumes that you install /Library/Java/...
-    # Please update if you choose to install in another location
-    $ sudo spctl add $GRAALVM/bin/java
-    ~~~
 
 ## Downloading GraalVM, Enterprise Edition 21.0.0
 
@@ -88,7 +67,28 @@ A quick summary of the steps outlined in the link above are:
 
 #### Installing on Mac
 
-On Mac, when you extract the downloaded GraalVM (the core download, not the language packages), the path is slightly different to Linux. For example:
+If you install on MacOS, a number of the details will vary from the general Linux approach.
+
+First, if you direct `GRAAL_HOME` to `/Library/Java/JavaVirtualMachines/`, MacOS picks the JDK as default-jdk (as long it’s the newest JDK in the directory). You may not want this outcome. 
+
+Secondly, the path that the core GraalVM extracts differs from that of Linux. For Mac, it adds a few sub-directories and the directory that will be used as your `GRAALVM_HOME` will be relative to the directory that you extracted to:
+
+    <install-dir>/graalvm-ee-java11-21.0.0/Contents/Home
+
+The third major difference is that on some versions of OSX, the `GateKeeper` service on OSX will block you from running `GraalVM` as it is not a signed application / binary. We can work around this challenge in a number of ways:
+
+* Disabling `GateKeeper`, running and then reenabling
+* On latter versions of OSX, you will be prompted that GraalVM is blocked and `GateKeeper` will prompt you to add an exception
+* You can allow access by using the `spctl` tool:
+
+    ~~~ {.bash}
+    # Run from the terminal
+    # This assumes that you install /Library/Java/...
+    # Please update if you choose to install in another location
+    $ sudo spctl add $GRAALVM/bin/java
+    ~~~
+
+On MacOS, when you extract the downloaded GraalVM (the core download, not the language packages), the path is slightly different to Linux. For example:
 
 ~~~ {.bash}
 # Using the JDK11 version.
