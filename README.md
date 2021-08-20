@@ -1,14 +1,14 @@
 # Installing GraalVM Enterprise Edition and Setup
 
-This guide, will walk you through the process of getting setup with GraalVM (in this example, GraalVM Enterprise Edition 21.2.0). 
+This guide will walk you through the process of installing GraalVM (in this example, GraalVM Enterprise Edition 21.2.0). 
 
 For an optimal lab experience, please install the following tools: `git`, `curl`, `unzip`, Docker or Podman, Apache Maven and your favorite IDE (optional).
 
-## Downloading GraalVM, Enterprise Edition 21.2.0
+## Downloading GraalVM Enterprise Edition 21.2.0
 
 It is important to note there are two versions of `GraalVM`, the Enterprise Edition (supported and with better performance) and the Community Edition (free and Open Source).
 
-Both of these can be dwonloaded from the GraalVM website, but these instructions will detail download and installation of the Enterprise Edition.
+Both of these can be downloaded from the GraalVM website, but these instructions will detail download and installation of the Enterprise Edition.
 
 The Enterprise Edition download can be found at: [https://www.oracle.com/downloads/graalvm-downloads.html?selected_tab=21](https://www.oracle.com/downloads/graalvm-downloads.html?selected_tab=21)
 
@@ -16,13 +16,13 @@ You should see the following when you access the Download Page:
 
 ![GraalVM Download Page](./images/graalvm-ee-1.png)
 
-Click on the Current Release tab on the page to display the download links for the current version. Make sure that you select the correct current minor version for the current release (the default should be selected already), the correct JDK version (8 or 11? Or both?) and the OS. Again, these are all are highlighted on the image below. The click on the "Download" icon.
+Click on the `Current Release` tab on the page to display the download links for the current version. Choose the Release Version, Java Version, OS and Architecture then click on the "Download" icon(s).
 
-You will be asked to accept the license agreement (OTN license, this means that you can use GraalVM EE for evaulation and development purposes). 
+You will be asked to accept the Oracle License Agreement. 
 
-![GraalVM Download Page - Select Current Verion, JDK and OS](./images/graalvm-ee-3.png)
+![GraalVM Download Page - Select Current Version, JDK and OS](./images/graalvm-ee-3.png)
 
-It will then ask you to log into Oracle. If you have an Oracle OTN account then use this identity to download GraalVM. If not, create one by hitting the "Create Acount" button at the bottom of the page:
+It will then ask you to log into Oracle. If you have an Oracle OTN account then use this identity to download GraalVM. If not, create one by hitting the "Create Account" button at the bottom of the page:
 
 ![GraalVM Download Page - Login](./images/oracle-acct.png)
 
@@ -52,7 +52,7 @@ A quick summary of the steps outlined in the link above are:
     - See earlier section, Downloading GraalVM
 2. You will need to download the following modules:
     - Oracle GraalVM Enterprise Edition for JDK11 (Version 21.2.0)
-    - Oracle GraalVM Enterprise Editipon Native Image Early Adopter based on JDK11 (Version 21.2.0)
+    - Oracle GraalVM Enterprise Edition Native Image Early Adopter based on JDK11 (Version 21.2.0)
     - GraalVM LLVM Toolchain module (Version 21.2.0)
     - Oracle GraalVM Enterprise Edition Python for JDK11 (Version 21.2.0)
     - Oracle GraalVM Enterprise Edition Ruby for JDK11 (Version 21.2.0)
@@ -119,7 +119,7 @@ java version "11.0.12" 2021-07-20 LTSJava(TM) SE Runtime Environment GraalVM EE
 ~~~
 
 > #### Mac - GateKeeper
-> On OSX you may see a pop-up warning you that the `java` is not a signed application and can not be run. This is not something to worry about, it is just OSX being over protectve :)
+> On OSX you may see a pop-up warning you that the `java` is not a signed application and can not be run. This is not something to worry about, it is just OSX being over protective :)
 > See the earlier section of this page on the Mac specific steps on installing GraalVM (you need to let the `GateKeeper` service know that GraalVm is safe to be run).
 
 Did you see the same output as above? If so, then it worked!
@@ -174,7 +174,7 @@ This is installed simply using the `gu` command:
 $ gu install -L <DOWNLOAD-DIR>/llvm-toolchain-installable-java11-darwin-amd64-21.2.0.jar
 ~~~
 
-#### Intalling Ruby
+#### Installing Ruby
 
 Full instructions can be found [here](hhttps://docs.oracle.com/en/graalvm/enterprise/21/docs/getting-started/#ruby).
 
@@ -210,7 +210,7 @@ $ graalpython
 
 Full instructions can be found [here](https://docs.oracle.com/en/graalvm/enterprise/21/docs/getting-started/#r).
 
-When installing the R language module, it is best to consult the installation page, above, as thwere are a number of prerequisites that need to be installed.
+When installing the R language module, it is best to consult the installation page, above, as there are a number of prerequisites that need to be installed.
 
 ### Install Visual Studio Code
 
@@ -236,7 +236,7 @@ You can find the Docker Images [here](https://github.com/orgs/graalvm/packages/c
 
 GraalVM includes a command-line utility called GraalVM Updater (`gu`) to install and manage optional GraalVM language runtimes and utilities. As of version 21.0.0, GraalVM Updater has become more efficient, and can be used to update your local GraalVM installation to a newer version or upgrade from a Community to Enterprise Edition.
 
-GraalVM Updater will attempt to download the latest version of either GraalVM Enterprise or GraalVM Community Edition, if available. It will not rewrite the existing installation, but unpack it into a new directory and print out the location path. It will also verify if you have any optional components installed in the current GraalVM installation and update those as well. If the “parent” installation contains a symlink to the currrent GraalVM installation, that symlink will be updated. If your setup involves some environment variables (e.g., PATH) pointing to a selected GraalVM installation, those variables should be updated manually. *(See note below regarding SDKMAN)*
+GraalVM Updater will attempt to download the latest version of either GraalVM Enterprise or GraalVM Community Edition, if available. It will not rewrite the existing installation, but unpack it into a new directory and print out the location path. It will also verify if you have any optional components installed in the current GraalVM installation and update those as well. If the “parent” installation contains a symlink to the current GraalVM installation, that symlink will be updated. If your setup involves some environment variables (e.g., PATH) pointing to a selected GraalVM installation, those variables should be updated manually. *(See note below regarding SDKMAN)*
 
 In the following example, the current GraalVM version is 20.3.0, we'll be upgrading to the latest version (21.2.0.1):
 
