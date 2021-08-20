@@ -176,7 +176,7 @@ $ gu install -L <DOWNLOAD-DIR>/llvm-toolchain-installable-java11-darwin-amd64-21
 
 #### Installing Ruby
 
-Full instructions can be found [here](hhttps://docs.oracle.com/en/graalvm/enterprise/21/docs/getting-started/#ruby).
+Full instructions can be found [here](https://docs.oracle.com/en/graalvm/enterprise/21/docs/getting-started/#ruby).
 
 But the basic steps are:
 
