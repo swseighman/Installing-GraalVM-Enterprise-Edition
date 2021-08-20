@@ -70,7 +70,7 @@ A quick summary of the steps outlined in the link above are:
 
 #### Installing on Mac
 
-If you install on MacOS, a number of the details vary from the general Linux approach.  See full instructions [here](https://docs.oracle.com/en/graalvm/enterprise/21/docs/getting-started/installation-macos/).
+If you install on MacOS, a number of details vary from the general Linux approach.  See full instructions [here](https://docs.oracle.com/en/graalvm/enterprise/21/docs/getting-started/installation-macos/).
 
 First, if you direct `GRAALVM_HOME` to `/Library/Java/JavaVirtualMachines/`, MacOS picks the JDK as default-jdk (as long it’s the newest JDK in the directory). You may not want this outcome. 
 
