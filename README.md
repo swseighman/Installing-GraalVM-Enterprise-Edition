@@ -22,7 +22,7 @@ You will be asked to accept the Oracle License Agreement.
 
 ![GraalVM Download Page - Select Current Version, JDK and OS](./images/graalvm-ee-3.png)
 
-It will then ask you to log into Oracle. If you have an Oracle OTN account then use this identity to download GraalVM. If not, create one by hitting the "Create Account" button at the bottom of the page:
+You will be prompted to login to your Oracle account. If you have an Oracle OTN account then use this identity to download GraalVM. If not, create one by hitting the "Create Account" button at the bottom of the page:
 
 ![GraalVM Download Page - Login](./images/oracle-acct.png)
 
