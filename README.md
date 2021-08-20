@@ -138,7 +138,7 @@ We use the `gu` package tool to install the additional modules that you can use 
 
 All language / component installations are executed using the `gu` tool distributed with GraalVM. The latest instructions on using this tool can be found at:
 
-[gu Tool - Enterprise Edition](https://docs.oracle.com/en/graalvm/enterprise/21/guide/reference/graalvm-updater.html)
+[gu Tool - Enterprise Edition](https://docs.oracle.com/en/graalvm/enterprise/21/docs/reference-manual/graalvm-updater/)
 
 #### Installing Native Image
 
