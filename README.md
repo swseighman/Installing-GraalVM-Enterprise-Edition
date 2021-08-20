@@ -56,25 +56,25 @@ A quick summary of the steps outlined in the link above are:
     - GraalVM LLVM Toolchain module (Version 21.2.0)
     - Oracle GraalVM Enterprise Edition Python for JDK11 (Version 21.2.0)
     - Oracle GraalVM Enterprise Edition Ruby for JDK11 (Version 21.2.0)
-3. Install the downloaded GraalVM EE core. This is a `tar.gz` file. You will need to extract it to a location that works for you and that will then become the root of your install. For example: `~/bin/graal/graalvm-ee-java11-21.2.0`
+3. Install the downloaded GraalVM EE core. This is a `tar.gz` file. You will need to extract it to a location that works for you and that will then become the root of your install. For example: `/opt/graalvm-ee-java11-21.2.0`
 4. Update your environment in order to add a `GRAALVM_HOME` and add this to the path. You can do this by updating your shell startup script in `~/.bash_rc` or `~/.zshrc`:
 
     ~~~ {.bash}
     # Using the JDK11 version.
-    export GRAALVM_HOME=~/bin/graal/graalvm-ee-java11-21.2.0
+    export GRAALVM_HOME=/opt/graalvm-ee-java11-21.2.0
     export JAVA_HOME="${GRAALVM_HOME}"
-    # Add the bin dir of GraalVM to your path, so you will be able to reference the exes
+    # Add the bin dir of GraalVM to your path
     export PATH="${GRAALVM_HOME}/bin:$PATH"
     ~~~
 
 
 #### Installing on Mac
 
-If you install on MacOS, a number of the details will vary from the general Linux approach.  See full instructions [here](https://docs.oracle.com/en/graalvm/enterprise/21/docs/getting-started/installation-macos/).
+If you install on MacOS, a number of the details vary from the general Linux approach.  See full instructions [here](https://docs.oracle.com/en/graalvm/enterprise/21/docs/getting-started/installation-macos/).
 
 First, if you direct `GRAALVM_HOME` to `/Library/Java/JavaVirtualMachines/`, MacOS picks the JDK as default-jdk (as long it’s the newest JDK in the directory). You may not want this outcome. 
 
-Secondly, the path that the core GraalVM extracts differs from that of Linux. For Mac, it adds a few sub-directories and the directory that will be used as your `GRAALVM_HOME` will be relative to the directory that you extracted to:
+Secondly, the path that the core GraalVM extracts differs from that of Linux. For Mac, it adds a few sub-directories and the directory that will be used as your `GRAALVM_HOME` will be relative to the directory where you extracted:
 
     <install-dir>/graalvm-ee-java11-21.2.0/Contents/Home
 
@@ -98,7 +98,7 @@ Also, if you are using MacOS Catalina and later you may need to remove the quara
 $ sudo xattr -r -d com.apple.quarantine /path/to/GRAALVM_HOME
 ```
 
-On MacOS, when you extract the downloaded GraalVM (the core download, not the language packages), the path is slightly different to Linux. For example:
+On MacOS, when you extract the downloaded GraalVM (the core download, not the language modules), the path is slightly different to Linux. For example:
 
 ~~~ {.bash}
 # Using the JDK11 version.
@@ -124,17 +124,17 @@ java version "11.0.12" 2021-07-20 LTSJava(TM) SE Runtime Environment GraalVM EE
 
 Did you see the same output as above? If so, then it worked!
 
-Test out the `gu` package tool:
+Test the `gu` utility:
 
 ~~~ {.bash}
 $ gu --help
 ~~~
 
-Did that work? If so, you now have access to the package tool that allows you to install various additional modules available with GraalVM.
+Did that work? If so, you now have access to the utility that allows you to install various additional modules available with GraalVM.
 
 ### Installing Language Modules
 
-We use the `gu` package tool to install the additional modules that you can use with GraalVM, such as the various language runtimes. In this section, we will step through the installation process.
+We use the `gu` tool to install the additional modules that you can use with GraalVM, such as the various language runtimes. In this section, we will step through the installation process.
 
 All language / component installations are executed using the `gu` tool distributed with GraalVM. The latest instructions on using this tool can be found at:
 
@@ -144,11 +144,62 @@ All language / component installations are executed using the `gu` tool distribu
 
 Full instructions can be found [here](https://docs.oracle.com/en/graalvm/enterprise/21/docs/getting-started/#native-images).
 
-1. Ensure you have the prerequisite libs available on your system: `glibc-devel, zlib-devel`
+Ensure you have the prerequisite libs available on your system: `glibc-devel, zlib-devel`
     - On linux these can be installed using your package manager
     - On OSX you will need to ensure that `xcode` is installed: `xcode-select --install`
-2. `$ gu install -L <DOWNLOAD-DIR>/native-image-installable-svm-svmee-java11-darwin-amd64-21.2.0.jar`
-3. Test the installation with: `native-image --version`
+
+There are two methods for installing the modules:
+
+1. Install directly using `gu install`
+2. Install using `gu install` with a downloaded module   
+
+**Method 1: Direct Installation**
+
+You'll need root permissions to install the modules.
+
+```
+$ gu install native-imageError: Insufficient privileges for administration of the GraalVM installation. You need to become "root" user in order to perform administrative tasks on GraalVM.NOTE: depending on your operating system, you may need to use OS tools to install or uninstall GraalVM components.
+```
+Determine the path to your GraalVM installation because you'll need to provide the full path to the `gu` utility:
+
+```$ which java~/.sdkman/candidates/java/21.2.0.1-r11-ee/bin/java
+```
+
+Install the `native-image` module as `root` using the full path to the `gu` utility:
+
+```$ sudo ~/.s~/.sdkman/candidates/java/21.2.0.1-r11-ee/bin/gu install native-image[sudo] password for user:Downloading: Release index file from oca.opensource.oracle.comDownloading: Component catalog for GraalVM Enterprise Edition 21.2.0 on jdk11 from oca.opensource.oracle.comDownloading: Component catalog for GraalVM Enterprise Edition 21.2.0.1 on jdk11 from oca.opensource.oracle.comSkipping ULN EE channels, no username provided.Downloading: Component catalog from www.graalvm.orgProcessing Component: Native ImageDownloading: Downloading license: Oracle GraalVM Enterprise Edition Native Image License from oca.opensource.oracle.comThe component(s) Native Image requires to accept the following license: Oracle GraalVM Enterprise Edition Native Image LicenseEnter "Y" to confirm and accept all the license(s). Enter "R" to the see license text.Any other input will abort installation:  YPlease provide an e-mail address (optional). You may want to check Oracle Privacy Policy (https://www.oracle.com/legal/privacy/privacy-policy.html).Enter a valid e-mail address: <your-email-address>Downloading: Component native-image: Native Image  from oca.opensource.oracle.comInstalling new component: Native Image (org.graalvm.native-image, version 21.2.0.1)
+```
+
+Confirm the module installed properly:
+
+```$ native-image --versionGraalVM 21.2.0.1 Java 11 EE (Java Version 11.0.12+8-LTS-jvmci-21.2-b08)
+```
+You can also view which modules have been installed by executing `gu list`:
+
+```
+$ gu listComponentId              Version             Component name                Stability                     Origin---------------------------------------------------------------------------------------------------------------------------------graalvm                  21.2.0.1            GraalVM Core                  -js                       21.2.0.1            Graal.js                      Supportednative-image             21.2.0.1            Native Image                  Early adopter                 oca.opensource.oracle.com
+```
+
+In addition, you can view which modules are available to install executing `gu available`:
+
+```
+$ gu availableDownloading: Release index file from oca.opensource.oracle.comDownloading: Component catalog for GraalVM Enterprise Edition 21.2.0 on jdk11 from oca.opensource.oracle.comDownloading: Component catalog for GraalVM Enterprise Edition 21.2.0.1 on jdk11 from oca.opensource.oracle.comSkipping ULN EE channels, no username provided.Downloading: Component catalog from www.graalvm.orgComponentId              Version             Component name                Stability                     Origin---------------------------------------------------------------------------------------------------------------------------------espresso                 21.2.0.1            Java on Truffle               Experimental                  oca.opensource.oracle.comllvm-toolchain           21.2.0.1            LLVM.org toolchain            Supported                     oca.opensource.oracle.comnative-image             21.2.0.1            Native Image                  Early adopter                 oca.opensource.oracle.comnodejs                   21.2.0.1            Graal.nodejs                  Supported                     oca.opensource.oracle.compython                   21.2.0.1            Graal.Python                  Experimental                  oca.opensource.oracle.comR                        21.2.0              FastR                         Experimental                  github.comruby                     21.2.0.1            TruffleRuby                   Experimental                  oca.opensource.oracle.comwasm                     21.2.0.1            GraalWasm                     Experimental                  oca.opensource.oracle.com
+```
+
+**Method 2: Install Using a Downloaded Module**
+
+As an option, modules can also be downloaded and installed using `gu`.  Modules are available from the [Download page](https://www.oracle.com/downloads/graalvm-downloads.html). Download the desired modules.
+
+Once again, installation requires root permissions and you'll need to provide the full path to the `gu` utility (see instructions above).
+
+`$  ~/.sdkman/candidates/java/21.2.0.1-r11-ee/bin/gu install -L <DOWNLOAD-DIR>/native-image-installable-svm-svmee-java11-darwin-amd64-21.2.0.jar`
+
+Validate the installation:
+
+```$ native-image --versionGraalVM 21.2.0.1 Java 11 EE (Java Version 11.0.12+8-LTS-jvmci-21.2-b08)
+```
+
+These two methods are applicable for any additional module you wish to install.
 
 
 #### Installing JS / Node
@@ -166,7 +217,7 @@ Both of the above commands will make reference to GraalVM and the version. If yo
 
 #### Installing the llvm-toolchain
 
-A number of the packages require the `llvm-toolchain` in order to work. Regardless of whether you are using the Enterprise or Community Edition, you will need to install the same version.
+A number of the modules require the `llvm-toolchain` in order to work. Regardless of whether you are using the Enterprise or Community Edition, you will need to install the same version.
 
 This is installed simply using the `gu` command:
 
