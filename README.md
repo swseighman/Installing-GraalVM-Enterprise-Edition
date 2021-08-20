@@ -190,9 +190,11 @@ $ gu availableDownloading: Release index file from oca.opensource.oracle.comDo
 
 As an option, modules can also be downloaded and installed using `gu`.  Modules are available from the [Download page](https://www.oracle.com/downloads/graalvm-downloads.html). Download the desired modules.
 
-Once again, installation requires root permissions and you'll need to provide the full path to the `gu` utility (see instructions above).
+Once again, installation requires `root` permissions and you'll need to provide the full path to the `gu` utility (see instructions above).
 
-`$  ~/.sdkman/candidates/java/21.2.0.1-r11-ee/bin/gu install -L <DOWNLOAD-DIR>/native-image-installable-svm-svmee-java11-darwin-amd64-21.2.0.jar`
+```
+$  ~/.sdkman/candidates/java/21.2.0.1-r11-ee/bin/gu install -L <DOWNLOAD-DIR>/native-image-installable-svm-svmee-java11-darwin-amd64-21.2.0.jar
+```
 
 Validate the installation:
 
@@ -208,10 +210,11 @@ Nothing to do here, these are available by default.
 
 You can test the `node` and `JS` tooling as follows:
 
-~~~ {.bash}
+```
 $ node --help
 $ js --show-version
-~~~
+GraalVM JavaScript (GraalVM EE Native 21.2.0.1)
+```
 
 Both of the above commands will make reference to GraalVM and the version. If you have node already installed, you may need to change your path or explicitly specify the path to the GraalVM version of node
 
@@ -221,9 +224,15 @@ A number of the modules require the `llvm-toolchain` in order to work. Regardles
 
 This is installed simply using the `gu` command:
 
-~~~ {.bash}
+```
+$ gu install llvm-toolchain
+```
+
+or
+
+```
 $ gu install -L <DOWNLOAD-DIR>/llvm-toolchain-installable-java11-darwin-amd64-21.2.0.jar
-~~~
+```
 
 #### Installing Ruby
 
@@ -231,14 +240,23 @@ Full instructions can be found [here](https://docs.oracle.com/en/graalvm/enterpr
 
 But the basic steps are:
 
-1. `$gu install -L <DOWNLOAD-DIR>/ruby-installable-svm-svmee-java11-linux-amd64-21.2.0.jar`
+```
+$ gu install ruby
+```
+
+or
+
+```
+$gu install -L <DOWNLOAD-DIR>/ruby-installable-svm-svmee-java11-linux-amd64-21.2.0.jar
+```
 
 Test that your installation works by running ruby:
 
-~~~ {.bash}
+```
 $ which ruby
 $ ruby --version
-~~~
+truffleruby 21.2.0.1, like ruby 2.7.3, GraalVM EE Native [x86_64-linux]
+```
 
 If you already have Ruby installed, then you will need to adjust your path or use the full path to the ruby binary.
 
@@ -248,14 +266,22 @@ Full instructions can be found [here](https://docs.oracle.com/en/graalvm/enterpr
 
 But the basic steps are:
 
-1. `$ gu -L install <DOWNLOAD-DIR>/python-installable-svm-svmee-java11-linux-amd64-21.2.0.jar`
-2. Test that Python is now installed:
+```
+$ gu install python
+```
 
-~~~ {.bash}
-$ gu list
-# You should see that Python EE version 21.2.0 is now installed
+or
+
+```
+$ gu -L install <DOWNLOAD-DIR>/python-installable-svm-svmee-java11-linux-amd64-21.2.0.jar
+```
+
+Test that Python is now installed:
+
+```
 $ graalpython
-~~~
+Python 3.8.5 (Fri Jul 30 17:40:39 UTC 2021)[Graal, GraalVM EE, Java 11.0.12] on linuxType "help", "copyright", "credits" or "license" for more information.>>>
+```
 
 #### Installing R
 
