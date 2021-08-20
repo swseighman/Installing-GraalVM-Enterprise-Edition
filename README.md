@@ -345,9 +345,9 @@ To rebuild and refresh the native binaries, use the following command:
 
 For example:
 
-`
+```
 $ sdk install java 21.2.0.1-r11-ee /Library/Java/JavaVirtualMachines/graalvm-ee-java11-21.2.0.1/Contents/Home
-`
+```
 
 Confirm both GraalVM and all of the modules were upgraded:
 
