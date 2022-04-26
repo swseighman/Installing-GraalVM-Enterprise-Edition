@@ -181,21 +181,36 @@ Install the `native-image` module as `root` using the full path to the `gu` util
 ```
 $ sudo ~/.s~/.sdkman/candidates/java/22.1.0-r17-ee/bin/gu install native-image
 [sudo] password for user:
+Downloading: Artifacts catalog from gds.oracle.com
 Downloading: Release index file from oca.opensource.oracle.com
-Downloading: Component catalog for GraalVM Enterprise Edition 22.1.0 on jdk17 from oca.opensource.oracle.com
-Downloading: Component catalog for GraalVM Enterprise Edition 22.1.0 on jdk17 from oca.opensource.oracle.com
 Skipping ULN EE channels, no username provided.
 Downloading: Component catalog from www.graalvm.org
 Processing Component: Native Image
-Downloading: Downloading license: Oracle GraalVM Enterprise Edition Native Image License from oca.opensource.oracle.com
-The component(s) Native Image requires to accept the following license: Oracle GraalVM Enterprise Edition Native Image License
-Enter "Y" to confirm and accept all the license(s). Enter "R" to the see license text.
-Any other input will abort installation:  Y
-Please provide an e-mail address (optional). You may want to check Oracle Privacy Policy (https://www.oracle.com/legal/privacy/privacy-policy.html).
-Enter a valid e-mail address: <your-email-address>
-Downloading: Component native-image: Native Image  from oca.opensource.oracle.com
+Enter your download token and press ENTER, or press ENTER to generate a new download token.
+Enter a valid download token:
+Please provide an email address. Please review Oracles Privacy Policy (https://www.oracle.com/legal/privacy/privacy-policy.html).
+Enter a valid email address: <your-email-address>
+Obtained download token "REQ4MTMyMzc3MUE0ODI2MUUwNTM2RTE2MDAwQUE2Mjk6YjIyxxxxx".
+
+The license has been sent to <your-email-address>. Accept it and then press ENTER to continue.
+
+Downloading: Component native-image: Native Image from gds.oracle.com
 Installing new component: Native Image (org.graalvm.native-image, version 22.1.0)
 ```
+
+You will be sent and email asking to verify your email:
+
+![](images/oracle-download-email-0.png)
+
+Scroll to the bottom and click on the **Verify email** button:
+
+![](images/oracle-download-email.png)
+
+After you verify your email, you'll receive confirmation.  You may now continue to download the `native-image` module:
+
+![](//wsl$/OracleLinux_8_5/home/sseighma/code/Installing-GraalVM-Enterprise-Edition/images/oracle-download-token.png)
+
+
 
 Confirm the module installed properly:
 
@@ -360,9 +375,12 @@ This will install all of the individual extensions.
 
 ## Docker - Pre-built Docker Images
 
-GraalVM is available on a number of pre-built container images that can be downloaded from GitHub. Currently only the Community Edition is available.
+GraalVM is available on a number of pre-built container images that can be downloaded from GitHub and the Oracle Container Registry.
 
-You can find the Docker Images [here](https://github.com/orgs/graalvm/packages/container/package/graalvm-ce).
+You can find the Community Edition images here: [here](https://github.com/orgs/graalvm/packages/container/package/graalvm-ce).
+
+GraalVM Enterprise Edition images can be found [here](http://container-registry.oracle.com/) (login using your Oracle ID).
+
 
 ## Upgrading GraalVM
 
