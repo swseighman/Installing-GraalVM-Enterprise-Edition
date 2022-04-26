@@ -373,7 +373,7 @@ Please install the following modules:
 
 This will install all of the individual extensions.
 
-## Docker - Pre-built Docker Images
+## GraalVM Containers
 
 GraalVM is available on a number of pre-built container images that can be downloaded from GitHub and the Oracle Container Registry.
 
